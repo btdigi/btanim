@@ -28,8 +28,11 @@ def unique_file():
             return fn
 
 while True:
-  print("Paste animation data received from Arduino:")
-  dt = input().strip()
+  print("Paste animation data received from Arduino & press Enter:")
+  dt, di = '', 'x'
+  while di:
+    di = input().strip()
+    dt += di
   if dt.startswith('load:'):
       dt = dt[5:]
   assert len(dt) % 16 == 0
